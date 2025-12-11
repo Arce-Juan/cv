@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Juan Eduardo Arce</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
+            padding: 50px 40px;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+        }
+        
+        .name {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+        
+        .title {
+            font-size: 20px;
+            color: #a0aec0;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .contact-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+        
+        .contact-item svg {
+            width: 18px;
+            height: 18px;
+            fill: #667eea;
+        }
+        
+        .contact-link-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+        
+        .contact-link-item svg {
+            width: 18px;
+            height: 18px;
+            fill: #667eea;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            color: #2d3748;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            font-weight: 600;
+        }
+        
+        .profile-text {
+            line-height: 1.8;
+            color: #4a5568;
+            font-size: 15px;
+        }
+        
+        .experience-item {
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 3px solid #e2e8f0;
+            position: relative;
+        }
+        
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 5px;
+            width: 11px;
+            height: 11px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px #667eea;
+        }
+        
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .company-name {
+            font-size: 20px;
+            color: #2d3748;
+            font-weight: 700;
+        }
+        
+        .date {
+            color: #718096;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .role {
+            color: #667eea;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .description {
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        
+        .tech-tag {
+            background: #edf2f7;
+            color: #2d3748;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .skill-category {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .skill-category h3 {
+            color: #2d3748;
+            font-size: 16px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .skill-item {
+            background: white;
+            color: #4a5568;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .education-item {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #764ba2;
+        }
+        
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .degree {
+            font-size: 18px;
+            color: #2d3748;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .institution {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        
+        .location {
+            color: #718096;
+            font-size: 14px;
+        }
+        
+        .qualities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .quality-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .languages {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .language {
+            background: #f7fafc;
+            padding: 15px 25px;
+            border-radius: 8px;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .language-name {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+        
+        .language-level {
+            color: #718096;
+            font-size: 14px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .name {
+                font-size: 32px;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .company-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="name">JUAN EDUARDO ARCE</h1>
+            <p class="title">Desarrollador Full Stack .NET | Backend Specialist</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <span>juan.arce.vfoxp@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    <span>+54 9 381 6437670</span>
+                </div>
+                <div class="contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <span>Tucumán, Argentina</span>
+                </div>
+            </div>
+            
+            <div class="contact-links">
+                <div class="contact-link-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                    <span><a href="https://www.linkedin.com/in/juan-eduardo-arce-24451a185/" style="color: white; text-decoration: none;">LinkedIn</a></span>
+                </div>
+                <div class="contact-link-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                    <span><a href="https://github.com/Arce-Juan" style="color: white; text-decoration: none;">GitHub</a></span>
+                </div>
+                <div class="contact-link-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    <span><a href="https://arce-juan.github.io/cv/" style="color: white; text-decoration: none;">Portfolio Web</a></span>
+                </div>
+                <div class="contact-link-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                    <span><a href="CV JUAN ARCE DEV .NET FULL-STACK.pdf" download style="color: white; text-decoration: none;">Descargar CV</a></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- Perfil Profesional -->
+            <div class="section">
+                <h2 class="section-title">Perfil Profesional</h2>
+                <p class="profile-text">
+                    Desarrollador Full Stack .NET con más de 7 años de experiencia en el desarrollo de sistemas escalables y de alta disponibilidad. Especializado en backend con .NET Core (hasta versión 8), diseño de APIs REST y arquitecturas basadas en microservicios. He participado en proyectos para sectores críticos como fintech, banca y seguros, aplicando principios SOLID, patrones de diseño y buenas prácticas de ingeniería para construir soluciones robustas y mantenibles en entornos ágiles. Actualmente incorporo herramientas de AI-assisted development para análisis de código, generación de pruebas, refactorización y apoyo en revisiones técnicas, manteniendo validación y criterios de arquitectura en el proceso de desarrollo.
+                </p>
+            </div>
+            
+            <!-- Experiencia Profesional -->
+            <div class="section">
+                <h2 class="section-title">Experiencia Profesional</h2>
+                
+                <div class="experience-item">
+                    <div class="company-header">
+                        <span class="company-name">LITHIUM</span>
+                        <span class="date">Octubre 2023 – Actualidad | Full-time</span>
+                    </div>
+                    <div class="role">Desarrollador .NET Core Full Stack</div>
+                    <p class="description">
+                        Diseñé y desarrollé soluciones backend robustas y altamente escalables para la pasarela de pagos, garantizando el procesamiento seguro y eficiente de transacciones financieras críticas. Implementación de Microservicios con .NET Core 8.0. Uso de herramientas de AI-assisted development para análisis, desarrollo y pruebas.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">.NET Core 3.1, 6.0, 8.0</span>
+                        <span class="tech-tag">Ant Design</span>
+                        <span class="tech-tag">SQL Server</span>
+                        <span class="tech-tag">Entity Framework</span>
+                        <span class="tech-tag">Microservicios</span>
+                        <span class="tech-tag">REST API</span>
+                        <span class="tech-tag">CQRS</span>
+                        <span class="tech-tag">Redis</span>
+                        <span class="tech-tag">AI-assisted development</span>
+                        <span class="tech-tag">Cursor</span>
+                        <span class="tech-tag">Claude</span>
+                        <span class="tech-tag">Copilot</span>
+                    </div>
+                    <div style="margin-top: 8px; font-size: 13px; color: #718096;">
+                        <strong>Metodología:</strong> Scrum
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="company-header">
+                        <span class="company-name">ACCENTURE</span>
+                        <span class="date">Abril 2022 - Oct 2023 | Full-time</span>
+                    </div>
+                    <div class="role">Desarrollador .NET Core Backend</div>
+                    <p class="description">
+                        Participé activamente en el desarrollo de sistemas bancarios core, migrando procesos financieros críticos a una arquitectura de microservicios con .NET Core. Integración de tecnologías de streaming de datos (Kafka y Nifi) para asegurar la consistencia y disponibilidad de la información transaccional. Uso de AI-assisted tooling para análisis de código legacy y generación de pruebas unitarias
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">.NET Core 3.1, 6.0</span>
+                        <span class="tech-tag">SQL Server</span>
+                        <span class="tech-tag">Entity Framework</span>
+                        <span class="tech-tag">Microservicios</span>
+                        <span class="tech-tag">Event-Driven Architecture</span>
+                        <span class="tech-tag">Kafka</span>
+                        <span class="tech-tag">Nifi</span>
+                        <span class="tech-tag">Scrum/Jira</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Dapper</span>
+                        <span class="tech-tag">Design Patterns</span>
+                        <span class="tech-tag">SOLID</span>
+                        <span class="tech-tag">AI-assisted tooling</span>
+                        <span class="tech-tag">Copilot</span>
+                        <span class="tech-tag">ChatGPT</span>
+                    </div>
+                    <div style="margin-top: 8px; font-size: 13px; color: #718096;">
+                        <strong>Metodología:</strong> Scrum
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="company-header">
+                        <span class="company-name">SBI TECHNOLOGY</span>
+                        <span class="date">Agosto 2021 - Abril 2022 | Full-Time</span>
+                    </div>
+                    <div class="role">Desarrollador Full Stack .NET</div>
+                    <p class="description">
+                        Desarrollé y mantuve el ciclo completo (Full Stack) de sistemas para una empresa aseguradora, utilizando Angular para el frontend y .NET Core para el backend. Implementé diversas estrategias de ORM, como Code First y Database First.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Angular</span>
+                        <span class="tech-tag">AngularJS</span>
+                        <span class="tech-tag">.NET Core 2.0, 3.0</span>
+                        <span class="tech-tag">WPF</span>
+                        <span class="tech-tag">Bootstrap 4</span>
+                        <span class="tech-tag">SQL Server</span>
+                        <span class="tech-tag">Azure DevOps</span>
+                        <span class="tech-tag">Design Patterns</span>
+                        <span class="tech-tag">SOLID</span>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="company-header">
+                        <span class="company-name">ALGEIBA S.A.</span>
+                        <span class="date">Marzo 2021 - Agosto 2021 | Full-time</span>
+                    </div>
+                    <div class="role">Desarrollador .NET Core Full Stack (Bootcamp + Proyecto)</div>
+                    <p class="description">
+                        Desarrollo de backend para infraestructura de Bot corporativo utilizando .NET Core, arquitectura en capas, EF, microservicios y APIs REST. Participé en diseño de servicios, definición de modelos, consumo/producción de datos y lógica de aplicación.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">.NET Core 3.0</span>
+                        <span class="tech-tag">SQL Server</span>
+                        <span class="tech-tag">Entity Framework (CF)</span>
+                        <span class="tech-tag">REST</span>
+                        <span class="tech-tag">Microservicios</span>
+                        <span class="tech-tag">Bot Framework</span>
+                    </div>
+                    <div style="margin-top: 8px; font-size: 13px; color: #718096;">
+                        <strong>Metodología:</strong> Scrum
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="company-header">
+                        <span class="company-name">MINISTERIO DE EDUCACIÓN TUCUMÁN</span>
+                        <span class="date">Marzo 2021 - Diciembre 2025 | Part-time</span>
+                    </div>
+                    <div class="role">Arquitecto de Software .NET</div>
+                    <p class="description">
+                        Lideré la reingeniería y migración del sistema SAGE a un entorno .NET Framework (2.0-4.5), funcionando como Arquitecto de Software. Responsable de definir los estándares de desarrollo, arquitectura en capas y patrones MVC para el sistema educativo provincial.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">.NET Framework 2.0-4.5</span>
+                        <span class="tech-tag">MVC</span>
+                        <span class="tech-tag">MetroUI</span>
+                        <span class="tech-tag">Bootstrap 4</span>
+                        <span class="tech-tag">SQL Server 2012</span>
+                        <span class="tech-tag">Entity Framework</span>
+                        <span class="tech-tag">SOLID</span>
+                        <span class="tech-tag">SCRUM</span>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="company-header">
+                        <span class="company-name">DIRECCION DE PROYECTOS INFORMATICOS (UTN-FRT)</span>
+                        <span class="date">Octubre 2020 – Noviembre 2021 | Part-time</span>
+                    </div>
+                    <div class="role">Desarrollador Jr (WordPress / Front / Requerimientos)</div>
+                    <p class="description">
+                        Desarrollo de sitios web para clientes externos utilizando WordPress, realizando tareas de relevamiento de requerimientos, análisis funcional, diseño e implementación de funcionalidades. Participación en ajustes UI/UX, soporte y mantenimiento evolutivo de páginas web entregadas a clientes.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">WordPress</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Plugins WP</span>
+                        <span class="tech-tag">Jira (Kanban)</span>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="company-header">
+                        <span class="company-name">MINISTERIO DE EDUCACIÓN TUCUMÁN</span>
+                        <span class="date">Febrero 2018 - Marzo 2021 | Full-time</span>
+                    </div>
+                    <div class="role">Desarrollador .NET Jr → Semi Senior</div>
+                    <p class="description">
+                        Desarrollo evolutivo del sistema SAGE, incorporando nuevas funcionalidades, mantenimiento correctivo, mejoras de performance y actualizaciones tecnológicas. Participé en tareas de análisis funcional, estimación, documentación y soporte a áreas internas. Mi rol evolucionó desde implementación Jr hasta participación activa en decisiones técnicas que posteriormente derivaron en la reingeniería completa del sistema.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">.NET Framework</span>
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">MVC</span>
+                        <span class="tech-tag">SQL Server</span>
+                        <span class="tech-tag">Entity Framework</span>
+                        <span class="tech-tag">Bootstrap</span>
+                        <span class="tech-tag">MetroUI</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Habilidades Técnicas -->
+            <div class="section">
+                <h2 class="section-title">Habilidades Técnicas</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Backend</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">.NET Core 2.0-8.0</span>
+                            <span class="skill-item">.NET Framework</span>
+                            <span class="skill-item">C#</span>
+                            <span class="skill-item">Entity Framework</span>
+                            <span class="skill-item">Dapper</span>
+                            <span class="skill-item">REST APIs</span>
+                            <span class="skill-item">Microservicios</span>
+                            <span class="skill-item">CQRS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Frontend</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">React</span>
+                            <span class="skill-item">Angular</span>
+                            <span class="skill-item">AngularJS</span>
+                            <span class="skill-item">Bootstrap</span>
+                            <span class="skill-item">Ant Design</span>
+                            <span class="skill-item">WPF</span>
+                            <span class="skill-item">HTML / CSS / JavaScript</span>
+                            <span class="skill-item">WordPress</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Bases de Datos</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">SQL Server</span>
+                            <span class="skill-item">T-SQL</span>
+                            <span class="skill-item">Redis</span>
+                            <span class="skill-item">Database Design</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Arquitectura & Patrones</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">Arquitectura en Capas</span>
+                            <span class="skill-item">Patrones de Diseño</span>
+                            <span class="skill-item">SOLID</span>
+                            <span class="skill-item">Microservicios</span>
+                            <span class="skill-item">Event-Driven Architecture</span>
+                            <span class="skill-item">CQRS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>DevOps & Tools</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">Azure DevOps</span>
+                            <span class="skill-item">GitHub</span>
+                            <span class="skill-item">GitLab</span>
+                            <span class="skill-item">TFS</span>
+                            <span class="skill-item">Jira</span>
+                            <span class="skill-item">Docker</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Otras Tecnologías</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">Kafka</span>
+                            <span class="skill-item">Nifi</span>
+                            <span class="skill-item">Bot Framework</span>
+                            <span class="skill-item">Scrum</span>
+                            <span class="skill-item">AI-assisted development</span>
+                            <span class="skill-item">Cursor</span>
+                            <span class="skill-item">Copilot</span>
+                            <span class="skill-item">Claude</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Educación -->
+            <div class="section">
+                <h2 class="section-title">Educación</h2>
+                
+                <div class="education-item">
+                    <div class="degree">Ingeniería en Sistemas de Información</div>
+                    <div class="institution">Universidad Tecnológica Nacional (FRT)</div>
+                    <div class="location">San Miguel de Tucumán</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="degree">Técnico en Computación con Orientación en Programación</div>
+                    <div class="institution">Secundario</div>
+                    <div class="location">San Salvador de Jujuy, Jujuy</div>
+                </div>
+            </div>
+            
+            <!-- Idiomas -->
+            <div class="section">
+                <h2 class="section-title">Idiomas</h2>
+                <div class="languages">
+                    <div class="language">
+                        <div class="language-name">Español</div>
+                        <div class="language-level">Nativo</div>
+                    </div>
+                    <div class="language">
+                        <div class="language-name">Inglés</div>
+                        <div class="language-level">Lectura + Documentación</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cualidades Personales -->
+            <div class="section">
+                <h2 class="section-title">Cualidades Profesionales</h2>
+                <div class="qualities">
+                    <span class="quality-badge">Trabajo en Equipo</span>
+                    <span class="quality-badge">Proactividad</span>
+                    <span class="quality-badge">Autodidacta</span>
+                    <span class="quality-badge">Compromiso</span>
+                    <span class="quality-badge">Responsabilidad</span>
+                    <span class="quality-badge">Metodologías Ágiles</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
